@@ -11,7 +11,7 @@ model_configs = {
     'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]}
 }
 
-encoder = 'vitb' # Use 'vits' or 'vitb' for real-time webcam
+encoder = 'vitl' # Use 'vits' or 'vitb' for real-time webcam
 model = DepthAnythingV2(**model_configs[encoder])
 model.load_state_dict(torch.load(f'checkpoints/depth_anything_v2_{encoder}.pth', map_location='cpu'))
 model = model.to(DEVICE).eval()
